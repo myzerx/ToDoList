@@ -1,12 +1,22 @@
-import { HomeContainer } from './style'
+import { PlusCircle } from 'phosphor-react'
+
+import {
+  CreateTaskButton,
+  FlexInput,
+  HomeContainer,
+  InputAddNewTask,
+} from './style'
 
 export function Home() {
   return (
     <HomeContainer>
-      <div>
-        <input type="text" placeholder="Adicione uma tarefa" />
-        <button type="submit"> Criar </button>
-      </div>
+      <FlexInput>
+        <InputAddNewTask type="text" placeholder="Adicione uma nova tarefa" />
+        <CreateTaskButton type="submit">
+          Criar
+          <PlusCircle size={18} weight={'bold'} />
+        </CreateTaskButton>
+      </FlexInput>
     </HomeContainer>
   )
 }

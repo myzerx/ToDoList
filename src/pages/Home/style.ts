@@ -13,8 +13,8 @@ export const FlexInput = styled.div`
 `
 
 export const InputAddNewTask = styled.input`
-  width: 638px;
-  height: 54px;
+  width: 39.875rem;
+  height: 3.375rem;
   border-radius: 8px;
   border: 1px solid ${(props) => props.theme['gray-700']};
   color: ${(props) => props.theme.white};
@@ -29,9 +29,11 @@ export const InputAddNewTask = styled.input`
 `
 
 export const CreateTaskButton = styled.button`
-  width: 90px;
-  height: 54px;
-  border-radius: 8px;
+  width: 5.625rem;
+  height: 3.375rem;
+
+  padding: 0.6rem;
+  border-radius: 0.5rem;
   border: none;
   color: ${(props) => props.theme['gray-100']};
   background-color: ${(props) => props.theme['blue-dark']};
@@ -41,7 +43,7 @@ export const CreateTaskButton = styled.button`
   align-items: center;
   justify-content: space-evenly;
 
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 700;
   line-height: 140%;
 

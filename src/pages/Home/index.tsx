@@ -15,10 +15,9 @@ export function Home() {
         <InputAddNewTask type="text" placeholder="Adicione uma nova tarefa" />
         <CreateTaskButton type="submit">
           Criar
-          <PlusCircle size={18} weight={'bold'} />
+          <PlusCircle size={20} />
         </CreateTaskButton>
       </FlexInput>
-
       <Content />
     </HomeContainer>
   )

@@ -1,7 +1,12 @@
+import { HomeContainer } from './style'
+
 export function Home() {
   return (
-    <>
-      <h1> Hello again from Home!</h1>
-    </>
+    <HomeContainer>
+      <div>
+        <input type="text" placeholder="Adicione uma tarefa" />
+        <button type="submit"> Criar </button>
+      </div>
+    </HomeContainer>
   )
 }

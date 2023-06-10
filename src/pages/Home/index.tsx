@@ -6,6 +6,7 @@ import {
   HomeContainer,
   InputAddNewTask,
 } from './style'
+import { Content } from '../../components/Content'
 
 export function Home() {
   return (
@@ -17,6 +18,8 @@ export function Home() {
           <PlusCircle size={18} weight={'bold'} />
         </CreateTaskButton>
       </FlexInput>
+
+      <Content />
     </HomeContainer>
   )
 }

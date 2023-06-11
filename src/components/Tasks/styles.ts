@@ -2,6 +2,8 @@ import styled from 'styled-components'
 
 export const TaskContainer = styled.div`
   display: flex;
+  width: 100%;
+  max-width: 100vh;
   flex-direction: column;
   gap: 0.75rem;
   padding: 0.35rem 0;

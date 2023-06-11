@@ -17,21 +17,20 @@ const newTaskFormValidationSchema = zod.object({
 
 type newTaskFormData = zod.infer<typeof newTaskFormValidationSchema>
 
-interface Task {
+export interface Task {
   id: string
   title: string
 }
 
 export interface TasksContextType {
   tasks: Task[]
-  activeTask: Task | undefined
+  DeleteTasks: (taskToDelete: string) => void
 }
 
 export const TasksContext = createContext({} as TasksContextType)
 
 export function Home() {
   const [tasks, setTasks] = useState<Task[]>([])
-  const [activeTaskId, setActiveTaskId] = useState<string | null>(null)
 
   const { register, handleSubmit, reset } = useForm({
     resolver: zodResolver(newTaskFormValidationSchema),
@@ -46,16 +45,23 @@ export function Home() {
       title: data.title,
     }
     setTasks([...tasks, newTask])
-    setActiveTaskId(newTask.id)
+
+    console.log(newTask.id)
     reset()
   }
 
-  const activeTask = tasks.find((task) => task.id === activeTaskId)
+  function DeleteTasks(taskToDelete: string) {
+    const tasksWithoutDeletedOne: Task[] = tasks.filter(
+      (task) => task.id !== taskToDelete,
+    )
+    setTasks(tasksWithoutDeletedOne)
+    console.log(tasksWithoutDeletedOne)
+  }
 
   return (
     <HomeContainer>
       <form onSubmit={handleSubmit(handleCreateNewTask)}>
-        <TasksContext.Provider value={{ tasks, activeTask }}>
+        <TasksContext.Provider value={{ tasks, DeleteTasks }}>
           <FlexInput>
             <InputAddNewTask
               id="task"

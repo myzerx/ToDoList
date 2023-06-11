@@ -1,3 +1,4 @@
+import { Task } from '../../pages/Home'
 import {
   TaskContainer,
   TaskTile,
@@ -9,19 +10,24 @@ import {
 
 import { Trash } from 'phosphor-react'
 
-interface TaskType {
-  tasks: string
+interface TypeProps {
+  data: Task
+  onDelete: (taskToDelete: string) => void
 }
 
-export function TaskComponent({ tasks }: TaskType) {
+export function TaskComponent({ data, onDelete }: TypeProps) {
+  function handleDeleteTask() {
+    onDelete(data.id)
+  }
+
   return (
     <TaskContainer>
       <TaskTile>
         <CheckTaskButton>
           <CheckTaskButtonDiv />
         </CheckTaskButton>
-        <TaskTileText> {tasks} </TaskTileText>
-        <DeleteButton>
+        <TaskTileText> {data.title} </TaskTileText>
+        <DeleteButton onClick={handleDeleteTask}>
           <Trash size={18} />
         </DeleteButton>
       </TaskTile>

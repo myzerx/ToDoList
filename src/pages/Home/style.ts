@@ -16,7 +16,7 @@ export const InputAddNewTask = styled.input`
   width: 39.875rem;
   height: 3.375rem;
   border-radius: 8px;
-  border: 1px solid ${(props) => props.theme['gray-700']};
+  border: 1.5px solid ${(props) => props.theme['gray-700']};
   color: ${(props) => props.theme.white};
   background-color: ${(props) => props.theme['gray-500']};
 

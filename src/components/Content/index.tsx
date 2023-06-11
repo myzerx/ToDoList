@@ -16,7 +16,7 @@ import { TasksContext } from '../../pages/Home'
 import { TaskComponent } from '../Tasks'
 
 export function Content() {
-  const { tasks } = useContext(TasksContext)
+  const { tasks, DeleteTasks } = useContext(TasksContext)
   const IsMoreThanOneTask = tasks.length > 0
 
   return (
@@ -31,17 +31,19 @@ export function Content() {
           <ContentTaskText color={'purple'}> Concluidas </ContentTaskText>
           {IsMoreThanOneTask ? (
             <ContentTaskNumber IsConcluded={'yes'}>
-              1 de {tasks.length}
+              0 de {tasks.length}
             </ContentTaskNumber>
           ) : (
-            <ContentTaskNumber> 1 </ContentTaskNumber>
+            <ContentTaskNumber> 0 </ContentTaskNumber>
           )}
         </ContentTask>
       </ContentHeader>
       {IsMoreThanOneTask ? (
         <ContentTaskRelative>
           {tasks.map((task) => {
-            return <TaskComponent key={task.id} tasks={task.title} />
+            return (
+              <TaskComponent data={task} key={task.id} onDelete={DeleteTasks} />
+            )
           })}
         </ContentTaskRelative>
       ) : (

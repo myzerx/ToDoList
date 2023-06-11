@@ -13,6 +13,7 @@ import { createContext, useState } from 'react'
 
 const newTaskFormValidationSchema = zod.object({
   title: zod.string().min(1, 'Informe a tarefa'),
+  isFinished: zod.boolean(),
 })
 
 type newTaskFormData = zod.infer<typeof newTaskFormValidationSchema>
@@ -20,11 +21,13 @@ type newTaskFormData = zod.infer<typeof newTaskFormValidationSchema>
 export interface Task {
   id: string
   title: string
+  isFinished: boolean
 }
 
 export interface TasksContextType {
   tasks: Task[]
-  DeleteTasks: (taskToDelete: string) => void
+  DeleteTasks: (taskId: string) => void
+  completeTasks: (taskId: string) => void
 }
 
 export const TasksContext = createContext({} as TasksContextType)
@@ -36,6 +39,7 @@ export function Home() {
     resolver: zodResolver(newTaskFormValidationSchema),
     defaultValues: {
       title: '',
+      isFinished: false,
     },
   })
 
@@ -43,6 +47,7 @@ export function Home() {
     const newTask: Task = {
       id: String(new Date().getTime()),
       title: data.title,
+      isFinished: data.isFinished,
     }
     setTasks([...tasks, newTask])
 
@@ -50,18 +55,30 @@ export function Home() {
     reset()
   }
 
-  function DeleteTasks(taskToDelete: string) {
+  function DeleteTasks(taskId: string) {
     const tasksWithoutDeletedOne: Task[] = tasks.filter(
-      (task) => task.id !== taskToDelete,
+      (task) => task.id !== taskId,
     )
     setTasks(tasksWithoutDeletedOne)
-    console.log(tasksWithoutDeletedOne)
+  }
+
+  function completeTasks(taskId: string) {
+    const newTasks = tasks.map((task) => {
+      if (task.id === taskId) {
+        return {
+          ...task,
+          isFinished: !task.isFinished,
+        }
+      }
+      return task
+    })
+    setTasks(newTasks)
   }
 
   return (
     <HomeContainer>
       <form onSubmit={handleSubmit(handleCreateNewTask)}>
-        <TasksContext.Provider value={{ tasks, DeleteTasks }}>
+        <TasksContext.Provider value={{ tasks, DeleteTasks, completeTasks }}>
           <FlexInput>
             <InputAddNewTask
               id="task"

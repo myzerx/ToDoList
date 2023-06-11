@@ -12,21 +12,32 @@ import { Trash } from 'phosphor-react'
 
 interface TypeProps {
   data: Task
-  onDelete: (taskToDelete: string) => void
+  onDelete: (taskId: string) => void
+  onComplete: (taskId: string) => void
 }
 
-export function TaskComponent({ data, onDelete }: TypeProps) {
+export function TaskComponent({ data, onDelete, onComplete }: TypeProps) {
   function handleDeleteTask() {
     onDelete(data.id)
+  }
+
+  function handleCompleteTask() {
+    onComplete(data.id)
   }
 
   return (
     <TaskContainer>
       <TaskTile>
         <CheckTaskButton>
-          <CheckTaskButtonDiv />
+          <CheckTaskButtonDiv
+            type="checkbox"
+            onChange={handleCompleteTask}
+            checked={data.isFinished}
+          />
         </CheckTaskButton>
-        <TaskTileText> {data.title} </TaskTileText>
+        <TaskTileText isUnderlined={!!data.isFinished}>
+          {data.title}{' '}
+        </TaskTileText>
         <DeleteButton onClick={handleDeleteTask}>
           <Trash size={18} />
         </DeleteButton>

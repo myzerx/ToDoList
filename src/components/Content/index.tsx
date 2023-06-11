@@ -16,25 +16,27 @@ import { TasksContext } from '../../pages/Home'
 import { TaskComponent } from '../Tasks'
 
 export function Content() {
-  const { tasks, DeleteTasks } = useContext(TasksContext)
-  const IsMoreThanOneTask = tasks.length > 0
+  const { tasks, DeleteTasks, completeTasks } = useContext(TasksContext)
+  const tasksQuantity = tasks.length
+  const IsMoreThanOneTask = tasksQuantity > 0
+  const completedTasks = tasks.filter((task) => task.isFinished).length
 
   return (
     <ContentContainer>
       <ContentHeader>
         <ContentTask>
           <ContentTaskText color={'blue'}> Tarefas criadas </ContentTaskText>
-          <ContentTaskNumber>{tasks.length} </ContentTaskNumber>
+          <ContentTaskNumber>{tasksQuantity} </ContentTaskNumber>
         </ContentTask>
-
         <ContentTask>
+          {}
           <ContentTaskText color={'purple'}> Concluidas </ContentTaskText>
           {IsMoreThanOneTask ? (
             <ContentTaskNumber IsConcluded={'yes'}>
-              0 de {tasks.length}
+              {completedTasks} de {tasksQuantity}
             </ContentTaskNumber>
           ) : (
-            <ContentTaskNumber> 0 </ContentTaskNumber>
+            <ContentTaskNumber> {completedTasks} </ContentTaskNumber>
           )}
         </ContentTask>
       </ContentHeader>
@@ -42,7 +44,12 @@ export function Content() {
         <ContentTaskRelative>
           {tasks.map((task) => {
             return (
-              <TaskComponent data={task} key={task.id} onDelete={DeleteTasks} />
+              <TaskComponent
+                data={task}
+                key={task.id}
+                onDelete={DeleteTasks}
+                onComplete={completeTasks}
+              />
             )
           })}
         </ContentTaskRelative>

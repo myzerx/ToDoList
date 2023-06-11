@@ -1,4 +1,4 @@
-import { PlusCircle } from 'phosphor-react'
+import { PlusCircle } from '@phosphor-icons/react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as zod from 'zod'

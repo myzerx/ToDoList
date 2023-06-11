@@ -9,11 +9,11 @@ import {
 
 import { Trash } from 'phosphor-react'
 
-interface Props {
+interface TaskType {
   tasks: string
 }
 
-export function TaskComponent({ tasks }: Props) {
+export function TaskComponent({ tasks }: TaskType) {
   return (
     <TaskContainer>
       <TaskTile>
@@ -22,7 +22,7 @@ export function TaskComponent({ tasks }: Props) {
         </CheckTaskButton>
         <TaskTileText> {tasks} </TaskTileText>
         <DeleteButton>
-          <Trash size={16} />
+          <Trash size={18} />
         </DeleteButton>
       </TaskTile>
     </TaskContainer>

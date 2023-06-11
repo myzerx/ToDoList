@@ -4,7 +4,7 @@ export const TaskContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  padding: 0.75rem 0;
+  padding: 0.35rem 0;
 `
 export const TaskTile = styled.div`
   display: flex;
@@ -31,6 +31,22 @@ export const CheckTaskButtonDiv = styled.div`
   height: 100%;
   border: 2px solid ${(props) => props.theme.blue};
   border-radius: 50%;
+
+  &:hover(:not(:active)) {
+    background-color: ${(props) => props.theme['blue-dark']};
+    cursor: pointer;
+  }
+
+  &:active {
+    border: 2px solid ${(props) => props.theme['purple-dark']};
+    background-color: ${(props) => props.theme['purple-dark']};
+
+    &:hover {
+      border: 2px solid ${(props) => props.theme.purple};
+      background-color: ${(props) => props.theme.purple};
+      cursor: pointer;
+    }
+  }
 `
 
 export const TaskTileText = styled.span`

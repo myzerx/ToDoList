@@ -33,7 +33,10 @@ export interface TasksContextType {
 export const TasksContext = createContext({} as TasksContextType)
 
 export function Home() {
-  const [tasks, setTasks] = useState<Task[]>([])
+  const [tasks, setTasks] = useState<Task[]>(() => {
+    const savedTasks = localStorage.getItem('@ignite-todo:tasks-state-1.0.0')
+    return savedTasks ? JSON.parse(savedTasks) : []
+  })
 
   const { register, handleSubmit, reset } = useForm({
     resolver: zodResolver(newTaskFormValidationSchema),
@@ -43,27 +46,32 @@ export function Home() {
     },
   })
 
-  function handleCreateNewTask(data: newTaskFormData) {
+  const setTasksAndSave = (newTasks: Task[]) => {
+    setTasks(newTasks)
+    localStorage.setItem(
+      '@ignite-todo:tasks-state-1.0.0',
+      JSON.stringify(newTasks),
+    )
+  }
+
+  const handleCreateNewTask = (data: newTaskFormData) => {
     const newTask: Task = {
       id: String(new Date().getTime()),
       title: data.title,
       isFinished: data.isFinished,
     }
-    setTasks([...tasks, newTask])
-
-    console.log(newTask.id)
+    const updatedTasks = [...tasks, newTask]
+    setTasksAndSave(updatedTasks)
     reset()
   }
 
-  function DeleteTasks(taskId: string) {
-    const tasksWithoutDeletedOne: Task[] = tasks.filter(
-      (task) => task.id !== taskId,
-    )
-    setTasks(tasksWithoutDeletedOne)
+  const DeleteTasks = (taskId: string) => {
+    const updatedTasks = tasks.filter((task) => task.id !== taskId)
+    setTasksAndSave(updatedTasks)
   }
 
-  function completeTasks(taskId: string) {
-    const newTasks = tasks.map((task) => {
+  const completeTasks = (taskId: string) => {
+    const updatedTasks = tasks.map((task) => {
       if (task.id === taskId) {
         return {
           ...task,
@@ -72,7 +80,7 @@ export function Home() {
       }
       return task
     })
-    setTasks(newTasks)
+    setTasksAndSave(updatedTasks)
   }
 
   return (

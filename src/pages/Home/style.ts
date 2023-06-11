@@ -49,5 +49,6 @@ export const CreateTaskButton = styled.button`
 
   &:hover {
     background-color: ${(props) => props.theme.blue};
+    cursor: pointer;
   }
 `

@@ -1,26 +1,23 @@
-import { Trash } from 'phosphor-react'
-
 import {
   ContentContainer,
   ContentHeader,
   ContentTask,
   ContentTaskNumber,
   ContentTaskText,
-  TaskContainer,
-  TaskTile,
-  CheckTaskButton,
-  CheckTaskButtonDiv,
-  TaskTileText,
-  DeleteButton,
 } from './styles'
+import { useContext } from 'react'
+import { TasksContext } from '../../pages/Home'
+import { TaskComponent } from '../Tasks'
 
 export function Content() {
+  const { tasks } = useContext(TasksContext)
+
   return (
     <ContentContainer>
       <ContentHeader>
         <ContentTask>
           <ContentTaskText color={'blue'}> Tarefas criadas</ContentTaskText>
-          <ContentTaskNumber> 0 </ContentTaskNumber>
+          <ContentTaskNumber> {tasks.length} </ContentTaskNumber>
         </ContentTask>
 
         <ContentTask>
@@ -28,20 +25,9 @@ export function Content() {
           <ContentTaskNumber> 0 </ContentTaskNumber>
         </ContentTask>
       </ContentHeader>
-      <TaskContainer>
-        <TaskTile>
-          <CheckTaskButton>
-            <CheckTaskButtonDiv />
-          </CheckTaskButton>
-          <TaskTileText>
-            Integer urna interdum massa libero auctor neque turpis turpis
-            semper. Duis vel sed fames integer.
-          </TaskTileText>
-          <DeleteButton>
-            <Trash size={16} />
-          </DeleteButton>
-        </TaskTile>
-      </TaskContainer>
+      {tasks.map((task) => {
+        return <TaskComponent key={task.id} tasks={task.title} />
+      })}
     </ContentContainer>
   )
 }

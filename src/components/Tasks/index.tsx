@@ -8,7 +8,7 @@ import {
   DeleteButton,
 } from './styles'
 
-import { Trash } from 'phosphor-react'
+import { Trash } from '@phosphor-icons/react'
 
 interface TypeProps {
   data: Task

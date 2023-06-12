@@ -9,6 +9,7 @@ export const ContentContainer = styled.div`
 
 export const ContentHeader = styled.header`
   display: flex;
+  width: 100%;
   align-items: center;
   justify-content: space-between;
   margin: 0 auto;
@@ -55,6 +56,7 @@ export const ContentTaskNumber = styled.span<ContentTaskNumberProps>`
   border-radius: 0.875rem;
   font-size: 0.75rem;
   font-weight: 700;
+
   background: ${(props) => props.theme['gray-400']};
 `
 
@@ -64,6 +66,7 @@ export const ContentTaskRelative = styled.div`
 
 export const NoTasks = styled.div`
   display: flex;
+  width: 100%;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -76,6 +79,7 @@ export const NoTasks = styled.div`
 
 export const NoTasksImage = styled.div`
   display: flex;
+
   padding: 1rem;
 `
 

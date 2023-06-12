@@ -11,7 +11,7 @@ export const TaskContainer = styled.div`
 export const TaskTile = styled.div`
   display: flex;
   height: 5rem;
-
+  width: 100%;
   padding: 1rem;
   gap: 0.75rem;
   border-radius: 0.7rem;
@@ -27,13 +27,15 @@ export const CheckTaskButton = styled.div`
   height: 1.125rem;
   position: relative;
   top: 5px;
+  width: 100%;
 `
 export const CheckTaskButtonDiv = styled.input`
   appearance: none;
-  width: 100%;
+
   height: 100%;
   border: 2px solid ${(props) => props.theme.blue};
   border-radius: 50%;
+  width: 100%;
 
   &:hover {
     background-color: ${(props) => props.theme['blue-dark']};
@@ -62,6 +64,7 @@ interface TaskTileTextisUnderlineProps {
 
 export const TaskTileText = styled.span<TaskTileTextisUnderlineProps>`
   display: flex;
+  width: 100%;
   font-size: 14px;
   line-height: 140%;
   padding: 0 0.5rem;
@@ -74,6 +77,7 @@ export const TaskTileText = styled.span<TaskTileTextisUnderlineProps>`
 `
 export const DeleteButton = styled.div`
   padding: 5px;
+
   top: 4px;
   color: ${(props) => props.theme['gray-300']};
   position: relative;

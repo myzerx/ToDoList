@@ -12,7 +12,7 @@ No desafio técnico da Rocketseat, o objetivo era desenvolver um aplicativo de l
 
 Para iniciar o projeto, foi utilizado o template gerado com o Vite, um poderoso gerador de projetos que proporciona uma configuração inicial pronta para uso. Com a base em Typescript, foi possível aproveitar os benefícios de um sistema de tipagem estática, aumentando a segurança e facilidade de manutenção do código.
 
-Você também pode acessar meu projeto clicando [AQUI](https://to-do-list-qv7dv0fo8-myzerx.vercel.app/)
+Você também pode acessar meu projeto clicando [AQUI](https://to-do-list-myzerx.vercel.app/)
 
 
 

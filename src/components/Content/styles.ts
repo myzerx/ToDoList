@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 
 export const ContentContainer = styled.div`
+  max-width: 736px;
   width: 100%;
-  max-width: 100vh;
+
   margin: 0 auto;
   margin-top: 3.425rem;
 `
@@ -41,12 +42,6 @@ export const ContentTaskText = styled.p<ContentTextProps>`
   font-weight: 700;
 
   color: ${(props) => props.theme[ContentTaskTextObj[props.color]]};
-
-  @media (max-width: 768px) {
-    /* Styles for screens up to 768px wide */
-
-    padding: 0.1rem;
-  }
 `
 
 const ContentTaskNumberObj = {
@@ -76,7 +71,9 @@ export const ContentTaskNumber = styled.span<ContentTaskNumberProps>`
     min-width: ${(props) =>
       props.IsConcluded === 'yes' ? '3.5rem' : '1.5625rem'};
     max-width: 1.5625rem;
-    height: 1.25rem;
+    @media (max-width: 768px) {
+      /* Styles for screens up to 768px wide */
+    }
     width: 100%;
   }
 `
@@ -96,14 +93,27 @@ export const NoTasks = styled.div`
   margin-top: 1.5rem;
   border-radius: 8px;
   border-top: 1px solid ${(props) => props.theme['gray-400']};
+  @media (max-width: 768px) {
+    /* Styles for screens up to 768px wide */
+
+    margin-top: -0.5rem;
+  }
 `
 
 export const NoTasksImage = styled.div`
   display: flex;
-
   padding: 1rem;
 `
 
 export const NoTasksText = styled.span`
   color: ${(props) => props.theme['gray-300']};
+  display: block;
+
+  @media (max-width: 768px) {
+    /* Styles for screens up to 768px wide */
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    width: 275px;
+  }
 `

@@ -16,10 +16,10 @@ export const FlexInput = styled.div`
   gap: 0.5rem;
 
   @media (max-width: 768px) {
-    width: 80%;
-    max-width: 100px;
+    width: 100%;
+    max-width: 250px;
 
-    padding-left: 2rem;
+    padding-left: 3rem;
   }
 `
 
@@ -66,6 +66,6 @@ export const CreateTaskButton = styled.button`
 
   @media (max-width: 768px) {
     width: 100%;
-    max-width: 100px;
+    max-width: 250px;
   }
 `

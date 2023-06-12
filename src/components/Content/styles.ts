@@ -80,6 +80,12 @@ export const ContentTaskNumber = styled.span<ContentTaskNumberProps>`
 
 export const ContentTaskRelative = styled.div`
   margin-top: 1.125rem;
+  @media (max-width: 768px) {
+    /* Styles for screens up to 768px wide */
+
+    margin-top: -0.5rem;
+    padding: 10px;
+  }
 `
 
 export const NoTasks = styled.div`
@@ -111,9 +117,9 @@ export const NoTasksText = styled.span`
 
   @media (max-width: 768px) {
     /* Styles for screens up to 768px wide */
-    font-size: 14px;
+    font-size: 13px;
     display: flex;
     justify-content: center;
-    width: 275px;
+    width: 255px;
   }
 `

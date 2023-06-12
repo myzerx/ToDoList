@@ -11,6 +11,7 @@ export const TaskContainer = styled.div`
   @media (max-width: 768px) {
     /* Styles for screens up to 768px wide */
     max-width: 90%;
+
     padding-left: 2rem;
   }
 `
@@ -28,7 +29,7 @@ export const TaskTile = styled.div`
 
   @media (max-width: 768px) {
     width: 100%;
-    max-width: 500px;
+    max-width: 450px;
 
     padding: 1rem 0.5rem;
   }

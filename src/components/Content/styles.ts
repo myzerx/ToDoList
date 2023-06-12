@@ -13,6 +13,12 @@ export const ContentHeader = styled.header`
   align-items: center;
   justify-content: space-between;
   margin: 0 auto;
+
+  @media (max-width: 768px) {
+    /* Styles for screens up to 768px wide */
+    width: 400px;
+    padding: 2rem;
+  }
 `
 
 export const ContentTask = styled.div`
@@ -35,6 +41,12 @@ export const ContentTaskText = styled.p<ContentTextProps>`
   font-weight: 700;
 
   color: ${(props) => props.theme[ContentTaskTextObj[props.color]]};
+
+  @media (max-width: 768px) {
+    /* Styles for screens up to 768px wide */
+
+    padding: 0.1rem;
+  }
 `
 
 const ContentTaskNumberObj = {
@@ -58,6 +70,15 @@ export const ContentTaskNumber = styled.span<ContentTaskNumberProps>`
   font-weight: 700;
 
   background: ${(props) => props.theme['gray-400']};
+
+  @media (max-width: 768px) {
+    /* Styles for screens up to 768px wide */
+    min-width: ${(props) =>
+      props.IsConcluded === 'yes' ? '3.5rem' : '1.5625rem'};
+    max-width: 1.5625rem;
+    height: 1.25rem;
+    width: 100%;
+  }
 `
 
 export const ContentTaskRelative = styled.div`

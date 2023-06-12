@@ -7,8 +7,7 @@ export const HomeContainer = styled.div`
   padding: 3.3rem;
 
   @media (max-width: 768px) {
-    /* Styles for screens up to 768px wide */
-    padding: 1.5rem;
+    padding: 2rem;
   }
 `
 
@@ -17,9 +16,10 @@ export const FlexInput = styled.div`
   gap: 0.5rem;
 
   @media (max-width: 768px) {
-    /* Styles for screens up to 768px wide */
-    flex-direction: column;
-    gap: 1rem;
+    width: 100%;
+    max-width: 250px;
+
+    padding: 0 0.7rem;
   }
 `
 
@@ -37,12 +37,6 @@ export const InputAddNewTask = styled.input`
   &:focus {
     outline: 0;
     box-shadow: 0 0 0 2px ${(props) => props.theme.purple};
-  }
-
-  @media (max-width: 768px) {
-    /* Styles for screens up to 768px wide */
-    width: 100%;
-    max-width: 300px;
   }
 `
 
@@ -71,7 +65,6 @@ export const CreateTaskButton = styled.button`
   }
 
   @media (max-width: 768px) {
-    /* Styles for screens up to 768px wide */
     width: 100%;
     max-width: 300px;
   }

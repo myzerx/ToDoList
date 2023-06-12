@@ -26,10 +26,9 @@ export const TaskTile = styled.div`
   justify-content: space-between;
 
   @media (max-width: 768px) {
-    /* Styles for screens up to 768px wide */
-    height: auto;
-    flex-direction: column;
-    align-items: flex-start;
+    width: 100%;
+    max-width: 500px;
+
     padding: 1rem 0.5rem;
   }
 `
@@ -70,8 +69,7 @@ export const CheckTaskButtonDiv = styled.input`
   }
 
   @media (max-width: 768px) {
-    /* Styles for screens up to 768px wide */
-    width: 6%;
+    width: 100%;
   }
 `
 

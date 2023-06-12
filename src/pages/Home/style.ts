@@ -2,21 +2,31 @@ import styled from 'styled-components'
 
 export const HomeContainer = styled.div`
   display: flex;
-
-  max-width: 100%vh;
   flex-direction: column;
   align-items: center;
-
   padding: 3.3rem;
+
+  @media (max-width: 768px) {
+    /* Styles for screens up to 768px wide */
+    padding: 1.5rem;
+  }
 `
+
 export const FlexInput = styled.div`
   display: flex;
   gap: 0.5rem;
+
+  @media (max-width: 768px) {
+    /* Styles for screens up to 768px wide */
+    flex-direction: column;
+    gap: 1rem;
+  }
 `
 
 export const InputAddNewTask = styled.input`
   width: 39.875rem;
   height: 3.375rem;
+
   border-radius: 8px;
   border: 1.5px solid ${(props) => props.theme['gray-700']};
   color: ${(props) => props.theme.white};
@@ -27,6 +37,12 @@ export const InputAddNewTask = styled.input`
   &:focus {
     outline: 0;
     box-shadow: 0 0 0 2px ${(props) => props.theme.purple};
+  }
+
+  @media (max-width: 768px) {
+    /* Styles for screens up to 768px wide */
+    width: 100%;
+    max-width: 300px;
   }
 `
 
@@ -52,5 +68,11 @@ export const CreateTaskButton = styled.button`
   &:hover {
     background-color: ${(props) => props.theme.blue};
     cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    /* Styles for screens up to 768px wide */
+    width: 100%;
+    max-width: 300px;
   }
 `

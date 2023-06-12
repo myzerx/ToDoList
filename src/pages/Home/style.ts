@@ -19,7 +19,7 @@ export const FlexInput = styled.div`
     width: 100%;
     max-width: 250px;
 
-    padding-left: 2rem;
+    padding-left: 1.5rem;
   }
 `
 

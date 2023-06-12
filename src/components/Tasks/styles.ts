@@ -10,7 +10,8 @@ export const TaskContainer = styled.div`
 
   @media (max-width: 768px) {
     /* Styles for screens up to 768px wide */
-    max-width: 100%;
+    max-width: 90%;
+    padding-left: 2rem;
   }
 `
 
@@ -92,6 +93,7 @@ export const TaskTileText = styled.span<TaskTileTextisUnderlineProps>`
   @media (max-width: 768px) {
     /* Styles for screens up to 768px wide */
     font-size: 12px;
+    width: 100%;
   }
 `
 

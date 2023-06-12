@@ -36,7 +36,7 @@ export function TaskComponent({ data, onDelete, onComplete }: TypeProps) {
           />
         </CheckTaskButton>
         <TaskTileText isUnderlined={!!data.isFinished}>
-          {data.title}{' '}
+          {data.title}
         </TaskTileText>
         <DeleteButton onClick={handleDeleteTask}>
           <Trash size={18} />
